@@ -21,14 +21,13 @@ class Frame
 
   def roll pins
     rolls.push pins
-    self
   end
 
   def total_pins
     rolls.inject { |sum,n| sum += n } 
   end
 
-  def next_frame=(frame)
+  def next_frame= ( frame )
     @next_frame = frame
   end
 
@@ -68,5 +67,3 @@ class Frame
   end
 
 end
-
-

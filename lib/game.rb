@@ -6,15 +6,15 @@ class Game
 
   def initialize
     @frames = []
-    @current_frame = Frame.new
-    frames.push @current_frame
+    @current = Frame.new
+    frames.push @current
   end
 
   def roll pins
-    if( @current_frame.finished? )
-      frames.push @current_frame.next_frame = @current_frame = Frame.new
+    if( @current.finished? )
+      frames.push @current.next_frame = @current = Frame.new
     end
-    @current_frame.roll pins
+    @current.roll pins
   end
 
   def gutterball
@@ -26,7 +26,7 @@ class Game
   end
 
   def spare
-    roll 10 - @current_frame.rolls.first
+    roll 10 - @current.rolls.first
   end
 
   def score
@@ -34,4 +34,3 @@ class Game
   end
 
 end
-
