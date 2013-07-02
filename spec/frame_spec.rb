@@ -10,7 +10,7 @@ describe Frame, "Bowling" do
     end
 
     it "sets rolls as [](default)" do
-      frame.rolls.should be_kind_of Array
+      frame.rolls.count.should == 0
     end
   end
 

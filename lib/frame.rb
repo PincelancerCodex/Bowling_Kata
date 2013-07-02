@@ -37,20 +37,16 @@ class Frame
   end
 
   def next_roll
-    (has_next_frame?) ? 
-      next_frame.rolls.first : nil
+    next_frame.rolls.first if has_next_frame?
   end
 
   def next_two_rolls
-    if( next_frame_finished? )
-      if( next_frame.strike? )	
-        10 + next_frame.next_roll rescue nil	      
-      else
-        next_frame.total_pins	      
-      end
-    else
-      nil
-    end
+    other_method if next_frame_finished?
+  end
+
+  def other_method
+    next_frame.strike? ? 
+      (10 + next_frame.next_roll rescue nil) : next_frame.total_pins	      
   end
 
   def has_next_frame?
